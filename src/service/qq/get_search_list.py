@@ -6,10 +6,12 @@ from src.util import logger
 import configparser
 import os
 import re
+import frozen
 
 log = logger.get_logger("qq_video")
+frozen_path = frozen.get_frozen_path()
 cf = configparser.RawConfigParser()
-filename = os.path.join(os.getcwd(), "src", "config", "config.ini")
+filename = os.path.join(frozen_path, "config", "config.ini")
 cf.read(filename, encoding="utf-8")
 cf.options("config")
 player_001 = cf.get("config", "player_001")
